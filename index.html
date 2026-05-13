@@ -728,15 +728,12 @@
   <h1>Votre boutique vend,<br>même quand vous <em>dormez</em></h1>
   <p class="hero-sub">ChatSales Bot est un chatbot IA qui répond à vos clients, les guide vers l'achat et capture leurs contacts — 24h/24, sans intervention humaine.</p>
 
-  <div style="max-width:480px;width:100%;margin:0 auto" id="brevo-hero">
-    <form id="sib-form" method="POST" action="https://10ce102b.sibforms.com/serve/MUIFABYTfY11GszZLEA5vi6A5ezWFkNjD-1Kf6dtrIiusqacuUYFWq7cW3Zv7q_hPVhyQ0Ja31tw9FCj1Sb72fEEklsjUu0cw2y8rZn1w9cNtCfE-slOwLjVDSryA6BXkDDmxKNpHYLUVyB0U-bc_7Sr1bKR7xszuL8QaG_Z8fxNIuEivJ4UhZd2hFqw3gNBzYZBFuJar0VFUctA_Q==" data-type="subscription" style="display:flex;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;width:100%">
-      <input id="hero-email" type="text" name="EMAIL" placeholder="Votre adresse email" required autocomplete="off" style="flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:8px 12px">
-      <input type="text" name="email_address_check" value="" style="display:none">
-      <input type="hidden" name="locale" value="fr">
-      <button type="submit" style="background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:8px;padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap">Je veux accès</button>
-    </form>
-  </div>
+  <form class="waitlist-form" onsubmit="handleSubmit(event, 'hero-success')">
+    <input id="hero-email" type="email" placeholder="Votre adresse email" required>
+    <button type="submit">Je veux accès</button>
+  </form>
   <p class="hero-note">✓ Gratuit pendant la bêta &nbsp;·&nbsp; ✓ Sans carte bancaire &nbsp;·&nbsp; ✓ Annulation à tout moment</p>
+  <div id="hero-success" class="success-msg">🎉 Parfait ! Vous êtes sur la liste. On vous contacte très bientôt.</div>
 
   <div class="chat-preview">
     <div class="chat-bubble">
@@ -931,12 +928,11 @@
   <span class="section-tag reveal">Accès anticipé</span>
   <h2 class="reveal">Prêt à vendre sans jamais dormir ?</h2>
   <p class="reveal">Rejoignez les premiers entrepreneurs qui vont tester ChatSales Bot gratuitement. Places limitées.</p>
-  <form method="POST" action="https://10ce102b.sibforms.com/serve/MUIFABYTfY11GszZLEA5vi6A5ezWFkNjD-1Kf6dtrIiusqacuUYFWq7cW3Zv7q_hPVhyQ0Ja31tw9FCj1Sb72fEEklsjUu0cw2y8rZn1w9cNtCfE-slOwLjVDSryA6BXkDDmxKNpHYLUVyB0U-bc_7Sr1bKR7xszuL8QaG_Z8fxNIuEivJ4UhZd2hFqw3gNBzYZBFuJar0VFUctA_Q==" data-type="subscription" class="cta-form reveal">
-    <input type="text" name="EMAIL" placeholder="votre@email.com" required autocomplete="off" style="flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:8px 12px">
-    <input type="text" name="email_address_check" value="" style="display:none">
-    <input type="hidden" name="locale" value="fr">
+  <form class="cta-form reveal" onsubmit="handleSubmit(event, 'cta-success')">
+    <input type="email" placeholder="votre@email.com" required>
     <button type="submit">Je veux accès</button>
   </form>
+  <div id="cta-success" class="success-msg" style="margin-top:12px">🎉 Vous êtes sur la liste ! On vous contacte très bientôt.</div>
 </section>
 
 <!-- FOOTER -->
@@ -976,7 +972,7 @@
         method: 'POST',
         headers: {
           'accept': 'application/json',
-          'api-key': 'BREVO_API_KEY_ICI',
+          'api-key': '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',
           'content-type': 'application/json'
         },
         body: JSON.stringify({
@@ -998,14 +994,5 @@
     success.style.display = 'block';
   }
 </script>
-<script>
-  window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-  window.LOCALE = 'fr';
-  window.EMAIL_INVALID_MESSAGE = "Les informations fournies ne sont pas valides.";
-  window.REQUIRED_ERROR_MESSAGE = "Vous devez renseigner ce champ.";
-  window.GENERIC_INVALID_MESSAGE = "Les informations fournies ne sont pas valides.";
-  var AUTOHIDE = Boolean(0);
-</script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
