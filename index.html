@@ -955,14 +955,41 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
 
-  // Form submit — collecte emails (simulé, à connecter à Mailchimp/Brevo plus tard)
-  function handleSubmit(e, successId) {
+  // Form submit — connecté à Brevo pour capturer les emails
+  async function handleSubmit(e, successId) {
     e.preventDefault();
     const form = e.target;
     const email = form.querySelector('input[type="email"]').value;
     const success = document.getElementById(successId);
-    // Ici on pourra connecter une vraie API email plus tard
-    console.log('Email capturé:', email);
+    const btn = form.querySelector('button');
+    
+    // Désactive le bouton pendant l'envoi
+    btn.textContent = 'Envoi...';
+    btn.disabled = true;
+
+    try {
+      await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'api-key': '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',
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          listIds: [2],
+          updateEnabled: true,
+          attributes: {
+            SOURCE: 'Landing Page ChatSales Bot',
+            DATE_INSCRIPTION: new Date().toISOString().split('T')[0]
+          }
+        })
+      });
+    } catch(err) {
+      console.error('Erreur Brevo:', err);
+    }
+
+    // Affiche le message de succès dans tous les cas
     form.style.display = 'none';
     success.style.display = 'block';
   }
