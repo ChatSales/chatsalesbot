@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique Test — ChatSales Bot</title>
+<style>
+  body { font-family: sans-serif; margin: 0; background: #f5f5f5; }
+  header { background: #222; color: white; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.3rem; font-weight: bold; }
+  .nav a { color: white; margin-left: 1.5rem; text-decoration: none; }
+  .hero { text-align: center; padding: 4rem 2rem; background: white; }
+  .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+  .hero p { color: #666; font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; }
+  .btn { background: #222; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 1rem; }
+  .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 3rem 2rem; max-width: 1000px; margin: 0 auto; }
+  .product-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .product-card h3 { margin: 0 0 8px; }
+  .product-card .price { font-size: 1.2rem; font-weight: bold; color: #222; }
+  .product-card .stock { font-size: 12px; color: #888; margin-top: 4px; }
+  .product-card button { margin-top: 12px; width: 100%; padding: 10px; background: #222; color: white; border: none; border-radius: 8px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">👗 Ma Boutique Test</div>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Produits</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Bienvenue sur Ma Boutique</h1>
+  <p>Découvrez notre collection exclusive. Notre assistante Léa est disponible pour vous aider.</p>
+  <a href="#produits" class="btn">Voir les produits</a>
+</div>
+
+<div class="products" id="produits">
+  <div class="product-card">
+    <h3>Sneakers Astra Blanc</h3>
+    <div class="price">89 €</div>
+    <div class="stock">✓ En stock — 124 paires</div>
+    <button>Ajouter au panier</button>
+  </div>
+  <div class="product-card">
+    <h3>Sweat Oversize Marine</h3>
+    <div class="price">59 €</div>
+    <div class="stock">✓ En stock — 42 unités</div>
+    <button>Ajouter au panier</button>
+  </div>
+  <div class="product-card">
+    <h3>Sac Bandoulière Cuir</h3>
+    <div class="price">149 €</div>
+    <div class="stock">⚠ Stock faible — 8 unités</div>
+    <button>Ajouter au panier</button>
+  </div>
+  <div class="product-card">
+    <h3>Veste Bomber Olive</h3>
+    <div class="price">119 €</div>
+    <div class="stock">✓ En stock — 31 unités</div>
+    <button>Ajouter au panier</button>
+  </div>
+</div>
+
+<!-- ChatSales Bot Widget -->
+<script>
+  window.ChatSalesBot = {
+    botId: "e1e85463-d43f-4857-9bce-e7e96f68a5d",
+    apiUrl: "https://id-preview--da4dba03-2a5e-47b1-8cd0-40dfae785ce0.lovable.app",
+    name: "Léa — Assistant ventes",
+    color: "#4F8EF7",
+    welcome: "Bonjour 👋 Je suis Léa, comment puis-je vous aider à trouver le produit parfait ?"
+  };
+</script>
+<script async src="https://id-preview--da4dba03-2a5e-47b1-8cd0-40dfae785ce0.lovable.app/widget.js"></script>
+
+</body>
+</html>
